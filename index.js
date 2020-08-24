@@ -1,4 +1,6 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // array of questions for user
 const questions = [
@@ -16,7 +18,7 @@ name: "usage",
 message:"Please provide instruction and examples for use of your project."},
 {type: "input",
 name: "credits",
-message: "Please enter the full name and github username for each member on your team separated by \"|\" (i.e. 'Firstname Lastname username | Firstname Lastname username') ",
+message: "Starting with yourself, please enter the full name and github username for each member on your team separated by \"|\" (i.e. 'Firstname Lastname username | Firstname Lastname username') ",
 filter: answer => {return answer.split("|");}
 },
 {type: "list",
@@ -36,13 +38,18 @@ message: "Please enter your email address."}
 
 // function to write README file
 function writeToFile(fileName, data) {
+  fs.writeFile("./" + fileName, data, 'utf8', (err) => {
+    if (err) throw new Error(err);
+  });
 }
 
 // function to initialize program
 function init() {
   inquirer.prompt(questions).then(answers => {
     console.log(answers);
+    writeToFile("answers.txt", JSON.stringify(answers));
   })
+  
 }
 
 // function call to initialize program
