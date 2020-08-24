@@ -17,8 +17,8 @@ message:"Please provide instruction and examples for use of your project."},
 {type: "input",
 name: "credits",
 message: "Please enter the full name and github username for each member on your team separated by \"|\" (i.e. 'Firstname Lastname username | Firstname Lastname username') ",
-filter: answer => {return answer.split("|");},
-}
+filter: answer => {return answer.split("|");}
+},
 {type: "list",
 name: "license",
 message:"Which license are you using for your project?",
