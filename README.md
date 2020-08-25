@@ -16,9 +16,22 @@
   
 
   ## Usage
+  
   The user can enter node index.js to start the application. The user will then be prompted for their project title, description, installation info, usage info, credits, license, contributing info, tests, email, and github repository. Once all information is given, the application compiles the information and creates a professional README.md file and writes it to the generatedREADME folder.
 
-  
+  ### Usage Gifs
+  ![usage gif 1](/images/usage-gif-1.gif)  
+  ![usage gif 2](/images/usage-gif-2.gif)  
+
+  ### Usage Screenshots  
+  User answering command line prompts  
+  ![Command Line Screenshot](/images/usage-screenshot-command-line.png)
+
+  A generated README.md file  
+  ![README file Screenshot](/images/usage-screenshot-readme-file.png)
+
+  A preview of the generated README.md file  
+  ![README Preview Screenshot](/images/usage-screenshot-readme-preview.png)
 
   ## Credits 
   * Graham Dickey gdickey273
