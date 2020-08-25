@@ -24,7 +24,9 @@ filter: answer => {return answer.split("|");}
 {type: "list",
 name: "license",
 message:"Which license are you using for your project?",
-choices: ["MIT", "GNU GPLv3"]},
+choices: [{name: "MIT", value: "MIT"}
+  , {name: "GNU GPLv3", value: "GNUGPLv3"},
+{name: "Mozilla Public License 2.0", value: "mozilla"}]},
 {type: "input",
 name: "contributing",
 message:"Please enter guidlines for how other developers can contribute."},
@@ -33,7 +35,10 @@ name: "tests",
 message:"Please provide examples of how to run your project tests."},
 {type: "input",
 name:"email",
-message: "Please enter your email address."}
+message: "Please enter your email address."},
+{type: "input",
+name: "repo",
+message: "Please enter the name of your github repository for this project."}
 ];
 
 // function to write README file
@@ -47,7 +52,7 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions).then(answers => {
     console.log(answers);
-    writeToFile("answers.txt", JSON.stringify(answers));
+    writeToFile("./generatedREADME/README.md", generateMarkdown(answers));
   })
   
 }
